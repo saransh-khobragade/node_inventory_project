@@ -21,12 +21,12 @@
     "body-parser": "1.19.0",
     "jsonwebtoken": "8.5.1",
     "bcryptjs": "2.4.3",
-    "mongoose": "5.9.6",
     "winston": "2.3.1",
     "winston-papertrail": "1.0.5",
     "shortid": "2.2.15",
     "response-time": "2.3.2",
     "redis": "3.0.2",
-    "request": "2.88.2"
+    "request": "2.88.2",
+    "mongodb": "3.5.5"
   }
 }
