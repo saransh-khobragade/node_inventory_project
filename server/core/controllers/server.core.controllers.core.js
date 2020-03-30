@@ -1,16 +1,18 @@
-const auth = require('../../auth/auth');
+const auth = require('../../auth/server.auth');
 const bcrypt = require('bcryptjs');
-const ObjectId = require('mongodb').ObjectId;
-const db = require('../helpers/mongo_crud');
+const db = require('../helpers/server.core.helpers.mongo_crud');
 
 
 exports.ping = (req, res) => {
+  logger.put('[server][controllers][core][ping] starts',res,true);
   return res.status(200).send({ "message": "pong" });
 };
 
 exports.register = async (req, res) => {
   try {
     const { name, type, password, email } = req.body
+
+    logger.put('[server][controllers][core][register] starts'+JSON.stringify(req.body),res);
 
     if (!name) throw new Error("Please send name in body")
     if (!email) throw new Error("Please send email in body")
@@ -33,12 +35,16 @@ exports.register = async (req, res) => {
       throw new Error("already registered")
     }
   } catch (err) {
+    logger.put('[server][controllers][core][register] err:'+err.message,res,true,err);
+
     return res.status(400).send({ err: err.message })
   }
 };
 
 exports.login = async (req, res) => {
   try {
+    logger.put('[server][controllers][core][login] start',res,true);
+
     const { password, email } = req.body
 
     if (!email) throw new Error("Please send email in body")
@@ -61,12 +67,16 @@ exports.login = async (req, res) => {
       throw new Error("not registered")
     }
   } catch (err) {
+    logger.put('[server][controllers][core][login] start err:'+err.message,res,true,err);
+
     return res.status(400).send({ err: err.message })
   }
 };
 
 exports.create_category = async (req, res) => {
   try {
+    logger.put('[server][controllers][core][create_category] start'+JSON.stringify(req.body),res,true);
+
     const { name,parent_category } = req.body
 
     if (!name) throw new Error("Please send name in body")
@@ -87,12 +97,16 @@ exports.create_category = async (req, res) => {
       throw new Error("already category present")
     }
   } catch (err) {
+    logger.put('[server][controllers][core][create_category] err:'+err.message,res,true,err);
+
     return res.status(400).send({ err: err.message })
   }
 };
 
 exports.create_product = async (req, res) => {
   try {
+    logger.put('[server][controllers][core][create_product] start'+JSON.stringify(req.body),res,true);
+
     const { name, price, des } = req.body
 
     if (!name) throw new Error("Please send name in body")
@@ -114,28 +128,36 @@ exports.create_product = async (req, res) => {
       throw new Error("already product present")
     }
   } catch (err) {
+    logger.put('[server][controllers][core][create_product] err:'+err.message,res,true,err);
+
     return res.status(400).send({ err: err.message })
   }
 };
 
 exports.get_all_product = async (req, res) => {
   try {
+    logger.put('[server][controllers][core][get_all_product] start',res,true);
 
     const result = await db.find_all('product', {})
     res.status(200).send(result)
 
   } catch (err) {
+    logger.put('[server][controllers][core][get_all_product] err'+err.message,res,true,err);
+
     return res.status(400).send({ err: err.message })
   }
 };
 
 exports.get_all_category = async (req, res) => {
   try {
+    logger.put('[server][controllers][core][get_all_category] start',res,true);
 
     const result = await db.find_all('category', {})
     res.status(200).send(result)
 
   } catch (err) {
+    logger.put('[server][controllers][core][get_all_category] err'+err.message,res,true,err);
+
     return res.status(400).send({ err: err.message })
   }
 };
@@ -143,16 +165,24 @@ exports.get_all_category = async (req, res) => {
 exports.get_all_dynamic_mapping = async (req, res) => {
   try {
 
+    logger.put('[server][controllers][core][get_all_dynamic_mapping] start',res,true);
+
     const result = await db.find_all('dynamic_mapping', {})
     res.status(200).send(result)
 
   } catch (err) {
+    logger.put('[server][controllers][core][get_all_dynamic_mapping] err'+err.message,res,true,err);
+
     return res.status(400).send({ err: err.message })
+    http_response.bad_request(res, "URI format not specified", app_constants.res_code_bad_request);
+
   }
 };
 
 exports.create_dynamic_mapping = async (req, res) => {
   try {
+    logger.put('[server][controllers][core][create_dynamic_mapping] start'+JSON.stringify(req.body),res,true);
+
     const { category_id, mapped_id, mapping_type } = req.body
 
     if (!category_id) throw new Error("Please send category_id in body")
@@ -169,6 +199,8 @@ exports.create_dynamic_mapping = async (req, res) => {
     }
 
   } catch (err) {
+    logger.put('[server][controllers][core][create_dynamic_mapping] err'+err.message,res,true,err);
+
     return res.status(400).send({ err: err.message })
   }
 
@@ -176,6 +208,7 @@ exports.create_dynamic_mapping = async (req, res) => {
 
 exports.get_menu = async (req, res) => {
   try {
+    logger.put('[server][controllers][core][get_menu] start',res,true);
 
     const category = await db.find_all('category')
     const product = await db.find_all('product')
@@ -196,6 +229,8 @@ exports.get_menu = async (req, res) => {
 
 
   } catch (err) {
+    logger.put('[server][controllers][core][get_menu] err'+err.message,res,true,err);
+
     return res.status(400).send({ err: err.message })
   }
 
@@ -223,6 +258,8 @@ const get_cat_child = (cat_id, dynamic_mapping,category,product) => {
 
 exports.update_category_by_id = async (req, res) => {
   try {
+    logger.put('[server][controllers][core][update_category_by_id] start'+JSON.stringify(req.body),res,true);
+
 
     const { id,name,parent_category } = req.body
 
@@ -242,12 +279,16 @@ exports.update_category_by_id = async (req, res) => {
     }
     
   } catch (err) {
+    logger.put('[server][controllers][core][update_category_by_id] err'+err.message,res,true,err);
+
     return res.status(400).send({ err: err.message })
   }
 };
 
 exports.update_product_by_id = async (req, res) => {
   try {
+    logger.put('[server][controllers][core][update_product_by_id] start'+JSON.stringify(req.body),res,true);
+
 
     const { id,name, price, des } = req.body
 
@@ -268,6 +309,8 @@ exports.update_product_by_id = async (req, res) => {
     }
     
   } catch (err) {
+    logger.put('[server][controllers][core][update_product_by_id] err'+err.message,res,true);
+
     return res.status(400).send({ err: err.message })
   }
 };
@@ -275,6 +318,7 @@ exports.update_product_by_id = async (req, res) => {
 
 exports.update_mapping_by_id = async (req, res) => {
   try {
+    logger.put('[server][controllers][core][update_mapping_by_id] start'+JSON.stringify(req.body),res,true);
 
     const { id,category_id, mapped_id, mapping_type } = req.body
 
@@ -296,12 +340,16 @@ exports.update_mapping_by_id = async (req, res) => {
     }
     
   } catch (err) {
+    logger.put('[server][controllers][core][update_mapping_by_id] err:'+err.message,res,true,err);
+
     return res.status(400).send({ err: err.message })
   }
 };
 
 exports.soft_delete_product_by_id = async (req, res) => {
   try {
+    logger.put('[server][controllers][core][soft_delete_product_by_id] start'+JSON.stringify(req.body),res,true);
+
 
     const { id } = req.body
 
@@ -315,6 +363,8 @@ exports.soft_delete_product_by_id = async (req, res) => {
     }
     
   } catch (err) {
+    logger.put('[server][controllers][core][soft_delete_product_by_id] err'+err.message,res,true,err);
+
     return res.status(400).send({ err: err.message })
   }
 
@@ -322,6 +372,7 @@ exports.soft_delete_product_by_id = async (req, res) => {
 
 exports.hard_delete_product_by_id = async (req, res) => {
   try {
+    logger.put('[server][controllers][core][hard_delete_product_by_id] start'+JSON.stringify(req.body),res,true);
 
     const { id } = req.body
 
@@ -335,6 +386,8 @@ exports.hard_delete_product_by_id = async (req, res) => {
     }
     
   } catch (err) {
+    logger.put('[server][controllers][core][hard_delete_product_by_id] err'+err.message,res,true,err);
+
     return res.status(400).send({ err: err.message })
   }
 

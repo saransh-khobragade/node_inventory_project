@@ -1,12 +1,12 @@
-const core = require('../controllers/server.core.controllers.v3.core');
+const core = require('../controllers/server.core.controllers.core');
 const redis_manager = require('../../utilities/server.utilities.redis_controller');
-const auth = require('../../auth/auth')
+const auth = require('../../auth/server.auth')
 const req = require('request');
 
 module.exports = (app) => {
 
   app.route('/ping')
-    .get(auth.verify(req), core.ping);
+    .get(core.ping);
 
   app.route('/register')
     .post(core.register);
@@ -35,10 +35,10 @@ module.exports = (app) => {
 
   app.route('/get_all_product')
     .get(auth.verify(req, 2), core.get_all_product);
-  
+
   app.route('/update_product_by_id')
     .put(auth.verify(req, 2), core.update_product_by_id);
-  
+
   app.route('/soft_delete_product_by_id')
     .delete(auth.verify(req, 2), core.soft_delete_product_by_id);
 
@@ -52,7 +52,7 @@ module.exports = (app) => {
 
   app.route('/get_all_dynamic_mapping')
     .get(auth.verify(req, 2), core.get_all_dynamic_mapping);
-  
+
   app.route('/update_mapping_by_id')
     .put(auth.verify(req, 2), core.update_mapping_by_id);
 

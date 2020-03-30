@@ -1,7 +1,7 @@
 
 
 const jwt = require('jsonwebtoken');
-const config = require('../shared/server.utilities.config');
+const config = require('../shared/server.core.shared.config');
 
 const auth = {}
 
