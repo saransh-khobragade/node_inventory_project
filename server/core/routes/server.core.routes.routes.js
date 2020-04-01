@@ -1,5 +1,4 @@
 const core = require('../controllers/server.core.controllers.core');
-const redis_manager = require('../../utilities/server.utilities.redis_controller');
 const auth = require('../../auth/server.auth')
 const req = require('request');
 

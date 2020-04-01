@@ -77,7 +77,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"email\":\"manoj@abc.com\",\n\t\"password\":\"abcd\"\n}",
+					"raw": "{\n\t\"email\":\"vikas@gmail.com\",\n\t\"password\":\"ajsnsk\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -102,10 +102,16 @@
 			"name": "http://localhost:1000/create_product",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InZpa2FzQGdtYWlsLmNvbSIsInR5cGUiOiJkZXZlbG9wZXIiLCJpYXQiOjE1ODU3Njk1NjksImV4cCI6MTU4NTg1NTk2OX0.vYAQZrlyuVv_Gnau4whKRM4GKwVc_Wzx--izvZ-1LZs",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"name\":\"levis jeans\",\n\t\"price\":1000,\n\t\"des\":\"slim jeans\"\n}",
+					"raw": "{\n\t\"name\":\"sharp jeans\",\n\t\"price\":1000,\n\t\"des\":\"vghjllb\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -133,7 +139,7 @@
 				"header": [
 					{
 						"key": "x-access-token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hbm9qQGFiYy5jb20iLCJ0eXBlIjoibWVyY2hhbnRfb3duZXIiLCJpYXQiOjE1ODU1MTE5MjgsImV4cCI6MTU4NTU5ODMyOH0.g3QcF_dWb7plKkTEQLuCMTJqTEPqc0QRoMJS__zqDhU",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InZpa2FzQGdtYWlsLmNvbSIsInR5cGUiOiJkZXZlbG9wZXIiLCJpYXQiOjE1ODU3Njg4MTUsImV4cCI6MTU4NTg1NTIxNX0.qFrLIbeow68aW2Nv2v_6c0s7KYhmJa_nfLA0ZY109sI",
 						"type": "text"
 					}
 				],
@@ -155,7 +161,13 @@
 			"name": "http://localhost:1000/get_all_category",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InZpa2FzQGdtYWlsLmNvbSIsInR5cGUiOiJkZXZlbG9wZXIiLCJpYXQiOjE1ODU3Njg4MTUsImV4cCI6MTU4NTg1NTIxNX0.qFrLIbeow68aW2Nv2v_6c0s7KYhmJa_nfLA0ZY109sI",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "http://localhost:1000/get_all_category",
 					"protocol": "http",
@@ -174,10 +186,16 @@
 			"name": "http://localhost:1000/create_dynamic_mapping",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InZpa2FzQGdtYWlsLmNvbSIsInR5cGUiOiJkZXZlbG9wZXIiLCJpYXQiOjE1ODU3Njk1NjksImV4cCI6MTU4NTg1NTk2OX0.vYAQZrlyuVv_Gnau4whKRM4GKwVc_Wzx--izvZ-1LZs",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"category_id\":\"5e80dfd6745c01d3e863ca11\",\n\t\"mapped_id\":\"5e80e544c3b748da4297aa11\",\n\t\"mapping_type\":\"category_to_product\"\n}\t",
+					"raw": "{\n\t\"category_id\":\"5e84ea94243bcc1e29889797\",\n\t\"mapped_id\":\"5e84edb9243bcc1e2988979a\",\n\t\"mapping_type\":\"category_to_product\"\n}\t",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -208,7 +226,7 @@
 				"header": [
 					{
 						"key": "x-access-token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hbm9qQGFiYy5jb20iLCJ0eXBlIjoibWVyY2hhbnRfb3duZXIiLCJpYXQiOjE1ODU1MTEwOTgsImV4cCI6MTU4NTU5NzQ5OH0.btS3sjjKUT6iafXRHe8YwCUzHouivHSupGyvGUs6-yc",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InZpa2FzQGdtYWlsLmNvbSIsInR5cGUiOiJkZXZlbG9wZXIiLCJpYXQiOjE1ODU3NzA2ODIsImV4cCI6MTU4NTg1NzA4Mn0.Mvci0Ue5QVVgIqxvALHaq1e1yLCHW2sGA8cuvGwUoUA",
 						"type": "text"
 					}
 				],
@@ -239,10 +257,16 @@
 			"name": "http://localhost:1000/create_category",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InZpa2FzQGdtYWlsLmNvbSIsInR5cGUiOiJkZXZlbG9wZXIiLCJpYXQiOjE1ODU3Njg4MTUsImV4cCI6MTU4NTg1NTIxNX0.qFrLIbeow68aW2Nv2v_6c0s7KYhmJa_nfLA0ZY109sI",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"name\":\"tank top\"\n}",
+					"raw": "{\n\t\"name\":\"jacket\",\n\t\"parent_category\":true\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -270,7 +294,7 @@
 				"header": [
 					{
 						"key": "x-access-token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InZpa2FzQGdtYWlsLmNvbSIsInR5cGUiOiJkZXZlbG9wZXIiLCJpYXQiOjE1ODU1NDQyOTksImV4cCI6MTU4NTYzMDY5OX0.4sXGYVEcTk679saN0EKDLWNu4ox5NI1cpI4rNQ-e3m8",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InZpa2FzQGdtYWlsLmNvbSIsInR5cGUiOiJkZXZlbG9wZXIiLCJpYXQiOjE1ODU3Njg4MTUsImV4cCI6MTU4NTg1NTIxNX0.qFrLIbeow68aW2Nv2v_6c0s7KYhmJa_nfLA0ZY109sI",
 						"type": "text"
 					}
 				],
@@ -436,28 +460,4 @@
 					}
 				],
 				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"id\":\"5e80ae1fe27a31a5dd7bdc63\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:1000/hard_delete_product_by_id",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "1000",
-					"path": [
-						"hard_delete_product_by_id"
-					]
-				}
-			},
-			"response": []
-		}
-	],
-	"protocolProfileBehavior": {}
-}
+	

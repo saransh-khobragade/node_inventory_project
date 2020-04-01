@@ -1,6 +1,5 @@
 global.central_config = require('./server/shared/server.core.shared.config')
 global.app_constants = require('./server/shared/server.core.shared.constant');
-global.http_response = require('./server/utilities/server.utilities.http_response');
 global.logger = require('./server/utilities/server.utilities.winston');
 
 const express = require('express'),
